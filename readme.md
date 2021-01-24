@@ -1,7 +1,7 @@
-##Projeto de Estudo Integração Spring - DynamoDb
+## Projeto de Estudo Integração Spring - DynamoDb
 Artigo base do estudo: https://medium.com/@kaikeventura/api-rest-com-spring-boot-e-aws-dynamodb-5e79ecb80b62
 
-###Ferramentas:
+### Ferramentas:
 
 * Java (JDK 8+): https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html
 * Spring Boot: https://start.spring.io/
@@ -24,7 +24,7 @@ Format: text
 Você pode utilizar também variáveis de ambiente.
 
 
-##Rodando o LocalStack
+## Rodando o LocalStack
 
 `localstack start`
 
