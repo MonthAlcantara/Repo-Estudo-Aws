@@ -1,4 +1,6 @@
-Ferramentas:
+##Projeto de Estudo Integração Spring - DynamoDb
+
+###Ferramentas:
 
 
 * Java (JDK 8+): https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html
@@ -9,7 +11,7 @@ Ferramentas:
 * Postman: https://www.postman.com/
 
 
-Necessario configurar o ambiente local com o AWS CLI e subir a imagem localstack no Docker.
+###Necessario configurar o ambiente local com o AWS CLI e subir a imagem localstack no Docker.
 
 ~~~
 Configuração Aws
@@ -19,7 +21,7 @@ Region: us-east-1
 Format: text
 ~~~~
 
-Rodando o LocalStack
+##Rodando o LocalStack
 
 `localstack start`
 
@@ -29,4 +31,4 @@ Rodando o LocalStack
 
 Para validar se a tabela foi criada é só utilizar o comando abaixo no terminal:
 
-` aws dynamodb list-tables --endpoint-url=http://localhost:4569`
+`aws dynamodb list-tables --endpoint-url=http://localhost:4566`
