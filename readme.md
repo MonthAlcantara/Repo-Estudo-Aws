@@ -1,7 +1,7 @@
 ##Projeto de Estudo Integração Spring - DynamoDb
+Artigo base do estudo: https://medium.com/@kaikeventura/api-rest-com-spring-boot-e-aws-dynamodb-5e79ecb80b62
 
 ###Ferramentas:
-
 
 * Java (JDK 8+): https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html
 * Spring Boot: https://start.spring.io/
@@ -11,7 +11,7 @@
 * Postman: https://www.postman.com/
 
 
-###Necessario configurar o ambiente local com o AWS CLI e subir a imagem localstack no Docker.
+Necessario configurar o ambiente local com o AWS CLI e subir a imagem localstack no Docker.
 
 ~~~
 Configuração Aws
@@ -20,6 +20,9 @@ Access Key: 123
 Region: us-east-1
 Format: text
 ~~~~
+
+Você pode utilizar também variáveis de ambiente.
+
 
 ##Rodando o LocalStack
 
