@@ -1,10 +1,12 @@
 package io.github.monthalcantara.ApiEstudoDynamoDb.service;
 
-import io.github.monthalcantara.ApiEstudoDynamoDb.dto.CostumerDTO;
+import io.github.monthalcantara.ApiEstudoDynamoDb.dto.request.CostumerRequest;
 import io.github.monthalcantara.ApiEstudoDynamoDb.model.Costumer;
 import io.github.monthalcantara.ApiEstudoDynamoDb.repository.CostumerRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +21,17 @@ public class CostumerServiceImpl implements CostumerService{
     }
 
     @Override
-    public Costumer saveCostumer(CostumerDTO costumerDTO) {
-        if(costumerRepository.findByCompanyDocumentNumber(costumerDTO.getCompanyDocumentNumber()).isPresent()) {
+    public Costumer saveCostumer(Costumer costumer) {
+        if(costumerRepository.findByCompanyDocumentNumber(costumer.getCompanyDocumentNumber()).isPresent()) {
             throw new RuntimeException("There is already a customer with this document number");
         }
-        return costumerRepository.save(costumerDTO.costumerDTOToCostumer());
+        return costumerRepository.save(costumer);
+    }
+
+    @Override
+    public Costumer findById(String id) {
+        return costumerRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Costumer not found"));
     }
 
     @Override
@@ -37,7 +45,7 @@ public class CostumerServiceImpl implements CostumerService{
     }
 
     @Override
-    public Costumer updateCostumer(String companyDocumentNumber, CostumerDTO costumerDTO) {
+    public Costumer updateCostumer(String companyDocumentNumber, CostumerRequest costumerRequest) {
         Optional<Costumer> costumer =
                 costumerRepository.findByCompanyDocumentNumber(companyDocumentNumber);
 
@@ -45,7 +53,7 @@ public class CostumerServiceImpl implements CostumerService{
             throw new RuntimeException("There is no customer with this document number");
         }
 
-        BeanUtils.copyProperties(costumerDTO, costumer.get(), "active", "id");
+        BeanUtils.copyProperties(costumerRequest, costumer.get(), "active", "id");
 
         return costumerRepository.save(costumer.get());
     }

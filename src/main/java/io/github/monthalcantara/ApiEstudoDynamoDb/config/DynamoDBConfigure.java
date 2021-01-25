@@ -23,10 +23,12 @@ public class DynamoDBConfigure {
     private String awsSecretKey;
     @Value("${aws.region}")
     private String awsRegion;
+
     @Bean
     public DynamoDBMapperConfig dynamoDBMapperConfig() {
         return DynamoDBMapperConfig.DEFAULT;
     }
+
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
         return AmazonDynamoDBClientBuilder

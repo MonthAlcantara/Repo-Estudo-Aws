@@ -1,16 +1,18 @@
-package io.github.monthalcantara.ApiEstudoDynamoDb.dto;
+package io.github.monthalcantara.ApiEstudoDynamoDb.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.monthalcantara.ApiEstudoDynamoDb.model.Costumer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@ToString
 @Getter
 @Setter
-public class CostumerDTO {
+public class CostumerRequest {
 
     @NotBlank
     @JsonProperty("company_name")
@@ -28,13 +30,13 @@ public class CostumerDTO {
     private Boolean active;
 
     @Deprecated
-    public CostumerDTO() {
+    public CostumerRequest() {
     }
 
-    public CostumerDTO(@NotNull @NotBlank String companyName,
-                       @NotNull @NotBlank String companyDocumentNumber,
-                       @NotNull @NotBlank String phoneNumber,
-                       Boolean active) {
+    public CostumerRequest(@NotNull @NotBlank String companyName,
+                           @NotNull @NotBlank String companyDocumentNumber,
+                           @NotNull @NotBlank String phoneNumber,
+                           Boolean active) {
         this.companyName = companyName;
         this.companyDocumentNumber = companyDocumentNumber;
         this.phoneNumber = phoneNumber;

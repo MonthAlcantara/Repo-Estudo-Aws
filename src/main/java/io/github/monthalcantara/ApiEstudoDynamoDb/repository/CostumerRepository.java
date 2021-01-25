@@ -13,6 +13,10 @@ import java.util.Optional;
  */
 @EnableScan
 public interface CostumerRepository extends CrudRepository<Costumer, String> {
+
     List<Costumer> findByCompanyName(String companyName);
+
     Optional<Costumer> findByCompanyDocumentNumber(String companyDocumentNumber);
+
+    Optional<Costumer> findById(String id);
 }
