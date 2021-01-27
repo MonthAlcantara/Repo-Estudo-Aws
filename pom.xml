@@ -37,18 +37,19 @@
 			<version>1.11.831</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-		</dependency>
-
-		<!--		modulo Spring trabalho com Dynamo		-->
+		<!--		Modulo Spring para trabalho com Dynamo		-->
 
 		<dependency>
 			<groupId>com.github.derjust</groupId>
 			<artifactId>spring-data-dynamodb</artifactId>
 			<version>5.1.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
 
 				<!--		Lombok			-->
 

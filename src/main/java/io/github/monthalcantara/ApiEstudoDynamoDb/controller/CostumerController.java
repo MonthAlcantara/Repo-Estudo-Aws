@@ -44,11 +44,14 @@ public class CostumerController {
 
         log.info("Conversao model para request feita com sucesso");
 
-        return new ResponseEntity(costumerResponse, HttpStatus.OK);
+        return new ResponseEntity(costumerResponse, HttpStatus.CREATED);
     }
 
     @GetMapping("costumer")
     public ResponseEntity<List<CostumerResponse>> findCostumerByName(@Param("companyName") String companyName) {
+
+        log.info("Recebido o nomde do costumer {}", companyName);
+
         List<Costumer> costumers = costumerService.findByCompanyName(companyName);
 
         List<CostumerResponse> costumersResponse = costumers.stream().map(CostumerResponse::new).collect(Collectors.toList());
